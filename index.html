@@ -16,286 +16,268 @@
     body{
       margin:0; background:var(--bg); color:var(--white);
       font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      display:flex; align-items:center; justify-content:center;
+      display:flex; align-items:stretch; justify-content:center;
     }
-    .app{width:100%; max-width:720px; padding:20px;}
-
-    .card{background:linear-gradient(145deg, #111 0%, #0a0a0a 60%);
-          border:2px solid var(--red);
-          border-radius:16px; padding:16px; box-shadow:0 10px 30px rgba(0,0,0,.5);}    
-    .title{display:flex; align-items:center; justify-content:space-between; gap:8px;}
-    .brand{font-weight:900; letter-spacing:1px;}
-    .brand .crisis{background:var(--red); color:var(--white); padding:2px 8px; border-radius:8px;}
-    .brand small{display:block; font-weight:600; opacity:.8; margin-top:4px}
-
+    .app{width:100%; max-width:720px; padding:16px 14px 24px; display:flex; flex-direction:column; gap:14px;}
+    .card{background:linear-gradient(145deg, #111 0%, #0a0a0a 60%); border:2px solid var(--red); border-radius:16px; padding:14px; box-shadow:0 10px 30px rgba(0,0,0,.5);}    
+    .header{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:6px 8px; border-radius:14px; background:linear-gradient(45deg, rgba(225,6,0,.08) 25%, transparent 25%), linear-gradient(-45deg, rgba(225,6,0,.08) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(225,6,0,.08) 75%), linear-gradient(-45deg, transparent 75%, rgba(225,6,0,.08) 75%); background-size:20px 20px; background-position:0 0,0 10px,10px -10px,-10px 0px;}
+    .brand{font-weight:900; letter-spacing:1px; display:flex; align-items:center; gap:8px;}
+    .brand .crisis{background:var(--red); color:var(--white); padding:4px 10px; border-radius:10px; font-size:18px;}
     .rocket{display:flex; align-items:center; gap:8px;}
-    .rocket svg{width:44px; height:44px; filter: drop-shadow(0 2px 0 rgba(0,0,0,.6));} .flame{transform-origin:50% 90%; animation:flicker .18s infinite alternate;} @keyframes flicker{0%{transform:scaleY(0.9); opacity:.75;}100%{transform:scaleY(1.1); opacity:1;}}
-    .badge{font-weight:800; color:var(--red); border:2px solid var(--red); padding:2px 8px; border-radius:999px;}
-
-    .grid{display:grid; gap:16px;}
-
+    .rocket svg{width:44px; height:44px; filter: drop-shadow(0 2px 0 rgba(0,0,0,.6));}
+    .flame{transform-origin:50% 90%; animation:flicker .18s infinite alternate;}
+    @keyframes flicker{0%{transform:scaleY(0.9); opacity:.75;}100%{transform:scaleY(1.1); opacity:1;}}
+    .badge{font-weight:800; color:var(--red); border:2px solid var(--red); padding:2px 10px; border-radius:999px;}
+    /* Vertical flow sections */
+    .section{display:flex; flex-direction:column; gap:10px;}
     .hidden{display:none !important;}
-
-    .btn{appearance:none; border:none; border-radius:12px; padding:14px 16px; 
-         color:var(--white); background:var(--red);
-         font-weight:800; text-transform:uppercase; letter-spacing:.5px;
-         box-shadow:0 6px 0 var(--red-dark); cursor:pointer; transition:transform .05s ease-in;}
+    .btn{appearance:none; border:none; border-radius:12px; padding:14px 16px; color:var(--white); background:var(--red); font-weight:800; text-transform:uppercase; letter-spacing:.5px; box-shadow:0 6px 0 var(--red-dark); cursor:pointer; transition:transform .05s ease-in;}
     .btn:active{transform:translateY(2px); box-shadow:0 4px 0 var(--red-dark);} 
     .btn.secondary{background:#111; border:2px solid var(--red); box-shadow:none;}
-
-    .section-title{font-size:14px; opacity:.8; text-transform:uppercase; letter-spacing:1px;}
-
     input[type="text"]{width:100%; background:#111; color:var(--white); border:2px solid var(--red); border-radius:10px; padding:12px 14px; font-size:16px;}
-
     .question{font-size:22px; font-weight:800; text-align:center;}
-    .muted{opacity:.8;}
     .stack{display:flex; flex-direction:column; gap:10px;}
-    .row{display:flex; gap:10px; align-items:center;}
-
-    .score{background:#111; border:1px solid var(--grey); border-radius:12px; padding:8px 12px; font-size:14px;}
-    .score strong{color:var(--red)}
+    .row{display:flex; gap:10px; align-items:center; justify-content:center;}
+    .score{background:#111; border:1px solid var(--grey); border-radius:12px; padding:8px 12px; font-size:14px; text-align:center;}
     .bubble{background:#111; border-left:4px solid var(--red); padding:10px 12px; border-radius:10px;}
-
-    .footer{margin-top:12px; font-size:12px; opacity:.7; text-align:center;}
-
-    /* red/black checkered vibe */
-    .check{background:linear-gradient(45deg, rgba(225,6,0,.08) 25%, transparent 25%),
-                        linear-gradient(-45deg, rgba(225,6,0,.08) 25%, transparent 25%),
-                        linear-gradient(45deg, transparent 75%, rgba(225,6,0,.08) 75%),
-                        linear-gradient(-45deg, transparent 75%, rgba(225,6,0,.08) 75%);
-          background-size:20px 20px; background-position:0 0,0 10px,10px -10px,-10px 0px; border-radius:14px;}
-
-    .spacer{height:8px}
+    .section-title{font-size:14px; opacity:.8; text-transform:uppercase; letter-spacing:1px;}
+    .boards{display:flex; flex-direction:column; gap:10px;}
+    .footer{margin-top:8px; font-size:12px; opacity:.7; text-align:center;}
+    @media (min-height: 740px){ .question{font-size:24px;} }
   </style>
 </head>
 <body>
   <div class="app">
-    <div class="card grid check">
-      <div class="title">
-        <div class="brand">
-          <div class="crisis">PEÑA LA CRISIS</div>
-          <small>Mayor / Menor · Versión fiesta</small>
-        </div>
-        <div class="rocket" title="COE">
-          <!-- Rocket SVG mejorado: cuerpo rojo, contorno blanco, ventana blanca, llama animada -->
-          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-            <!-- cuerpo -->
-            <path d="M32 4c8 0 16 12 16 24 0 8-4 14-6 18H22c-2-4-6-10-6-18C16 16 24 4 32 4z" fill="var(--red)" stroke="var(--white)" stroke-width="2" stroke-linejoin="round"/>
-            <!-- aletas -->
-            <path d="M22 46l-10 6 2-10 8-2v6z" fill="var(--red)" stroke="var(--white)" stroke-width="2"/>
-            <path d="M42 46l10 6-2-10-8-2v6z" fill="var(--red)" stroke="var(--white)" stroke-width="2"/>
-            <!-- ventana -->
-            <circle cx="32" cy="22" r="6" fill="var(--white)" stroke="var(--bg)" stroke-width="2"/>
-            <!-- tobera -->
-            <rect x="26" y="46" width="12" height="6" rx="2" fill="#111" stroke="var(--white)" stroke-width="2"/>
-            <!-- llama -->
-            <path class="flame" d="M32 60c-6-2-8-6-6-10 2 2 4 2 6 0 2 2 4 2 6 0 2 4 0 8-6 10z" fill="var(--red)" stroke="var(--white)" stroke-width="2"/>
-          </svg>
-          <span class="badge">COE</span>
-        </div>
+    <!-- CABECERA: SIEMPRE ARRIBA -->
+    <div class="card header">
+      <div class="brand">
+        <div class="crisis">PEÑA LA CRISIS</div>
+      </div>
+      <div class="rocket" title="COE">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <path d="M32 4c8 0 16 12 16 24 0 8-4 14-6 18H22c-2-4-6-10-6-18C16 16 24 4 32 4z" fill="var(--red)" stroke="var(--white)" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M22 46l-10 6 2-10 8-2v6z" fill="var(--red)" stroke="var(--white)" stroke-width="2"/>
+          <path d="M42 46l10 6-2-10-8-2v6z" fill="var(--red)" stroke="var(--white)" stroke-width="2"/>
+          <circle cx="32" cy="22" r="6" fill="var(--white)" stroke="var(--bg)" stroke-width="2"/>
+          <rect x="26" y="46" width="12" height="6" rx="2" fill="#111" stroke="var(--white)" stroke-width="2"/>
+          <path class="flame" d="M32 60c-6-2-8-6-6-10 2 2 4 2 6 0 2 2 4 2 6 0 2 4 0 8-6 10z" fill="var(--red)" stroke="var(--white)" stroke-width="2"/>
+        </svg>
+        <span class="badge">COE</span>
+      </div>
+    </div>
 
-      <!-- PANTALLA 1: nombre -->
-      <section id="screen-name" class="grid" style="margin-top:12px;">
-        <div class="section-title">Tu nombre</div>
-        <input id="player-name" type="text" maxlength="20" placeholder="Escribe tu nombre..." />
-        <button class="btn" id="btn-start">Entrar</button>
-        <div class="footer">Los puntos se guardan en este dispositivo (clasificación local).</div>
-      </section>
+    <!-- BLOQUE PRINCIPAL VERTICAL -->
+    <div class="card section" id="screen-name">
+      <div class="section-title">Tu nombre</div>
+      <input id="player-name" type="text" maxlength="20" placeholder="Escribe tu nombre..." />
+      <button class="btn" id="btn-start">Entrar</button>
+      <div class="score" id="bankinfo">Banco de preguntas cargado: <strong id="bank-count">0</strong></div>
+      <div class="footer">Los puntos se guardan en este dispositivo (clasificación local) y, si está activo, se suben a la global.</div>
+    </div>
 
-      <!-- PANTALLA 2: elegir castigo -->
-      <section id="screen-penalty" class="grid hidden">
-        <div class="section-title">Castigo</div>
-        <div class="question">Elige BEBER o RETO</div>
-        <div class="row">
-          <button class="btn" id="btn-beber">Beber</button>
-          <button class="btn secondary" id="btn-reto">Reto</button>
-        </div>
-        <div class="row">
-          <div class="score" id="scorebox">Puntos de <strong id="pname"></strong>: <strong id="pscore">0</strong></div>
-        </div>
-      </section>
+    <div class="card section hidden" id="screen-penalty">
+      <div class="section-title">Castigo</div>
+      <div class="question">Elige BEBER o RETO</div>
+      <div class="row">
+        <button class="btn" id="btn-beber">Beber</button>
+        <button class="btn secondary" id="btn-reto">Reto</button>
+      </div>
+      <div class="score">Puntos de <strong id="pname"></strong>: <strong id="pscore">0</strong></div>
+    </div>
 
-      <!-- PANTALLA 3: pregunta mayor/menor -->
-      <section id="screen-question" class="grid hidden">
-        <div class="section-title">Pregunta</div>
-        <div class="question" id="qtext">...</div>
-        <!-- Botón de MÁS arriba, MENOS debajo -->
-        <div class="stack">
-          <button class="btn" id="btn-mas">Más</button>
-          <button class="btn secondary" id="btn-menos">Menos</button>
-        </div>
-        <div class="bubble muted" id="hint"></div>
-      </section>
+    <div class="card section hidden" id="screen-question">
+      <div class="section-title">Pregunta</div>
+      <div class="question" id="qtext">...</div>
+      <div class="stack">
+        <button class="btn" id="btn-mas">Más</button>
+        <button class="btn secondary" id="btn-menos">Menos</button>
+      </div>
+      <div class="bubble" id="hint">Pulsa “Más” o “Menos”.</div>
+    </div>
 
-      <!-- PANTALLA 4: resultado -->
-      <section id="screen-result" class="grid hidden">
-        <div class="section-title">Resultado</div>
-        <div class="bubble" id="result-line">...</div>
-        <div class="bubble" id="truth-line">...</div>
-        <div class="bubble hidden" id="penalty-line"><strong>Castigo:</strong> <span id="penalty-text"></span></div>
-        <div class="row">
-          <button class="btn" id="btn-next">Siguiente</button>
-        </div>
-      </section>
+    <div class="card section hidden" id="screen-result">
+      <div class="section-title">Resultado</div>
+      <div class="bubble" id="result-line">...</div>
+      <div class="bubble" id="truth-line">...</div>
+      <div class="bubble hidden" id="penalty-line"><strong>Castigo:</strong> <span id="penalty-text"></span></div>
+      <div class="row"><button class="btn" id="btn-next">Siguiente</button></div>
+    </div>
 
-      <!-- CLASIFICACIÓN -->
-      <section id="screen-board" class="grid" style="margin-top:8px;">
-        <div class="section-title">Clasificación local</div>
-        <div id="board" class="bubble"></div>
-      </section>
-
+    <!-- CLASIFICACIONES: GLOBAL ARRIBA, LOCAL ABAJO -->
+    <div class="card boards">
+      <div>
+        <div class="section-title">Clasificación Global</div>
+        <div class="bubble" id="board-global">Cargando…</div>
+        <small class="footer" id="lb-mode" style="margin-top:6px;"></small>
+      </div>
+      <div>
+        <div class="section-title">Clasificación Local</div>
+        <div class="bubble" id="board-local">Sin puntuaciones todavía.</div>
+      </div>
     </div>
   </div>
 
   <script type="module">
-  (async () => {
-    // ===== Helpers =====
-    const $ = (sel)=>document.querySelector(sel);
-    function showError(msg){
-      const el = document.createElement('div');
-      el.style.position='fixed'; el.style.left='8px'; el.style.right='8px'; el.style.bottom='8px';
-      el.style.background='#290000'; el.style.border='2px solid #ff3333'; el.style.color='#fff'; el.style.padding='8px 10px'; el.style.borderRadius='10px'; el.style.zIndex='9999'; el.style.fontSize='12px';
-      el.textContent = 'Error: '+msg; document.body.appendChild(el); setTimeout(()=>el.remove(), 4000);
-    }
-
-    // ===== SUPABASE (opcional) =====
-    let createClient = null; let sb = null;
-    const SUPABASE_URL = ""; // p.ej. https://abcd1234.supabase.co
-    const SUPABASE_ANON = ""; // tu anon key
-    const TABLE = "plc_scores";
-    const supabaseReady = () => Boolean(SUPABASE_URL && SUPABASE_ANON);
-    function getClient(){ if(!supabaseReady() || !createClient) return null; if(!sb) sb = createClient(SUPABASE_URL, SUPABASE_ANON); return sb; }
-    async function maybeLoadSupabase(){
-      if(!supabaseReady()) return; // sin credenciales, no hace falta cargar SDK
-      try{ ({ createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm')); }
-      catch(e){ console.warn('Supabase SDK no disponible:', e); }
-    }
-    async function postScore(name, score){ const c = getClient(); if(!c) return; const { error } = await c.from(TABLE).upsert({ name, score, updated_at:new Date().toISOString() }, { onConflict:'name' }); if(error) throw error; }
-    async function loadGlobalLB(limit=10){ const c = getClient(); if(!c) throw new Error('Supabase no configurado'); const { data, error } = await c.from(TABLE).select('name, score').order('score', { ascending:false }).limit(limit); if(error) throw error; return data||[]; }
-
-    // ===== DATA (data.js externo) =====
-    let DATA = []; let makeVariants, isAnswerCorrect;
-    async function loadData(){
-      try{ const mod = await import('./data.js'); DATA = mod.DATA||[]; makeVariants = mod.makeVariants; isAnswerCorrect = mod.isAnswerCorrect; }
-      catch(e){
-        // Fallback demo (no rompe el flujo)
-        DATA = [
-          {id:'everest_height', label:'Altura del Monte Everest', unit:'m', trueValue:8849, tolerancePct:0, asOf:'demo'},
-          {id:'pop_iceland', label:'Población de Islandia', unit:'personas', trueValue:387000, tolerancePct:0.05, asOf:'demo'},
-          {id:'bolt_100m', label:'Récord 100 m (Bolt)', unit:'s', trueValue:9.58, tolerancePct:0, asOf:'demo'},
-          {id:'ucl_real_madrid', label:'Champions Real Madrid', unit:'títulos', trueValue:15, tolerancePct:0, asOf:'demo'},
-          {id:'k2_height', label:'Altura del K2', unit:'m', trueValue:8611, tolerancePct:0, asOf:'demo'},
-          {id:'spain_kings_modern', label:'Reyes de España (era moderna)', unit:'reyes', trueValue:19, tolerancePct:0, asOf:'demo'},
-          {id:'jupiter_moons', label:'Satélites de Júpiter', unit:'satélites', trueValue:95, tolerancePct:0, asOf:'demo'},
-          {id:'golf_holes_standard', label:'Hoyos en un campo de golf', unit:'hoyos', trueValue:18, tolerancePct:0, asOf:'demo'},
-          {id:'human_bones', label:'Huesos en el cuerpo humano', unit:'huesos', trueValue:206, tolerancePct:0, asOf:'demo'},
-          {id:'rubik3x3_wr_single', label:'Récord 3×3 Rubik (single)', unit:'s', trueValue:3.13, tolerancePct:0, asOf:'demo'}
-        ];
-        makeVariants = (item)=>{ const low=Math.floor(Number(item.trueValue)*0.85); const high=Math.ceil(Number(item.trueValue)*1.15); return [ {refValue:low, correctIf:'higher', statement:`${item.label}: ${low} ${item.unit}.`}, {refValue:high, correctIf:'lower', statement:`${item.label}: ${high} ${item.unit}.`} ]; };
-        isAnswerCorrect = (answer,item,variant)=>answer===variant.correctIf;
+    (async () => {
+      // ===== Helpers =====
+      const $ = (sel)=>document.querySelector(sel);
+      function showError(msg){
+        const el = document.createElement('div');
+        el.style.position='fixed'; el.style.left='8px'; el.style.right='8px'; el.style.bottom='8px';
+        el.style.background='#290000'; el.style.border='2px solid #ff3333'; el.style.color='#fff'; el.style.padding='8px 10px'; el.style.borderRadius='10px'; el.style.zIndex='9999'; el.style.fontSize='12px';
+        el.textContent = 'Error: '+msg; document.body.appendChild(el); setTimeout(()=>el.remove(), 4000);
       }
-      const bc = document.getElementById('bank-count'); if(bc) bc.textContent = DATA.length;
-    }
+      const screens = { name: $('#screen-name'), penalty: $('#screen-penalty'), question: $('#screen-question'), result: $('#screen-result') };
+      function show(id){ Object.values(screens).forEach(s=>s.classList.add('hidden')); screens[id].classList.remove('hidden'); }
 
-    // ===== Estado & UI =====
-    const screens = { name: $('#screen-name'), penalty: $('#screen-penalty'), question: $('#screen-question'), result: $('#screen-result') };
-    function show(id){ Object.values(screens).forEach(s=>s.classList.add('hidden')); screens[id].classList.remove('hidden'); }
+      // ===== SUPABASE (global leaderboard) =====
+      let createClient = null; let sb = null;
+      const SUPABASE_URL  = "https://nrvegnpbssjozpmbfaud.supabase.co"; // URL proporcionada
+      const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ydmVnbnBic3Nqb3pwbWJmYXVkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgxOTM3NzcsImV4cCI6MjA3Mzc2OTc3N30.KR2vF7F8YM3T17QtZI893FO6pUrXfYmjv5Z_zvByrHk"; // <-- Pega aquí tu anon public key (Settings → API → Project API keys → anon public)
+      const TABLE = "plc_scores";
+      const supabaseReady = () => Boolean(SUPABASE_URL && SUPABASE_ANON);
+      async function maybeLoadSupabase(){
+        if(!SUPABASE_URL){ return; }
+        try{ ({ createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm')); }
+        catch(e){ console.warn('Supabase SDK no disponible:', e); }
+      }
+      function getClient(){ if(!createClient || !supabaseReady()) return null; if(!sb) sb = createClient(SUPABASE_URL, SUPABASE_ANON); return sb; }
+      async function postScore(name, score){ const c = getClient(); if(!c) return; const { error } = await c.from(TABLE).upsert({ name, score, updated_at: new Date().toISOString() }, { onConflict: 'name' }); if(error) throw error; }
+      async function loadGlobalLB(limit=10){ const c = getClient(); if(!c) throw new Error('Supabase no configurado'); const { data, error } = await c.from(TABLE).select('name, score').order('score', { ascending:false }).limit(limit); if(error) throw error; return data||[]; }
 
-    const LS_KEY = 'plc_scores_v1';
-    function loadScores(){ try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch { return {}; } }
-    function saveScores(map){ localStorage.setItem(LS_KEY, JSON.stringify(map)); }
+      // ===== DATA (data.js externo) =====
+      let DATA = []; let makeVariants, isAnswerCorrect;
+      async function loadData(){
+        try{ const mod = await import('./data.js'); DATA = mod.DATA||[]; makeVariants = mod.makeVariants; isAnswerCorrect = mod.isAnswerCorrect; }
+        catch(e){
+          // Fallback demo
+          DATA = [
+            {id:'everest_height', label:'Altura del Monte Everest', unit:'m', trueValue:8849, tolerancePct:0, asOf:'demo'},
+            {id:'pop_iceland', label:'Población de Islandia', unit:'personas', trueValue:387000, tolerancePct:0.05, asOf:'demo'},
+            {id:'bolt_100m', label:'Récord 100 m (Bolt)', unit:'s', trueValue:9.58, tolerancePct:0, asOf:'demo'},
+            {id:'ucl_real_madrid', label:'Champions Real Madrid', unit:'títulos', trueValue:15, tolerancePct:0, asOf:'demo'},
+            {id:'k2_height', label:'Altura del K2', unit:'m', trueValue:8611, tolerancePct:0, asOf:'demo'},
+            {id:'human_bones', label:'Huesos en el cuerpo humano', unit:'huesos', trueValue:206, tolerancePct:0, asOf:'demo'},
+            {id:'jupiter_moons', label:'Satélites de Júpiter', unit:'satélites', trueValue:95, tolerancePct:0, asOf:'demo'},
+            {id:'golf_holes_standard', label:'Hoyos en un campo de golf', unit:'hoyos', trueValue:18, tolerancePct:0, asOf:'demo'},
+            {id:'rubik3x3_wr_single', label:'Récord 3×3 Rubik (single)', unit:'s', trueValue:3.13, tolerancePct:0, asOf:'demo'}
+          ];
+          makeVariants = (item)=>{ const low=Math.floor(Number(item.trueValue)*0.85); const high=Math.ceil(Number(item.trueValue)*1.15); return [ {refValue:low, correctIf:'higher', statement:`${item.label}: ${low} ${item.unit}.`}, {refValue:high, correctIf:'lower', statement:`${item.label}: ${high} ${item.unit}.`} ]; };
+          isAnswerCorrect = (answer,item,variant)=>answer===variant.correctIf;
+        }
+        const bc = document.getElementById('bank-count'); if(bc) bc.textContent = DATA.length;
+      }
 
-    let player = { name:'', score:0 };
-    let chosenPenaltyType = null; let chosenPenaltyText='';
-    let currentItem=null, currentVariant=null;
+      // ===== Estado & PUNISH =====
+      const LS_KEY = 'plc_scores_v1';
+      function loadScores(){ try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch { return {}; } }
+      function saveScores(map){ localStorage.setItem(LS_KEY, JSON.stringify(map)); }
+      let player = { name:'', score:0 };
+      let chosenPenaltyText=''; let currentItem=null, currentVariant=null;
+      const PUNISH = {
+        beber:[
+          'Bebe 1 trago.','Bebe 2 tragos.','Bebe 3 tragos.','Bebe medio vaso.','Toma un chupito.',
+          'Bebe un sorbo cada vez que alguien diga tu nombre durante 5 minutos.',
+          'Juega a piedra papel y tijera con alguien (si ganas 1 trago, si pierdes 3 tragos).',
+          'Bebe 4 tragos seguidos.','Bebe un trago y elige a alguien para que beba contigo.',
+          'Bebe un trago por cada hermano/hermana que tengas.','Bebe 1 trago y grita “¡MUCHA CRISIS! EH! OE!”.'
+        ],
+        reto:[
+          'Sácate una foto con alguien que no conozcas y súbela a stories.',
+          'Haz la carretilla 10 metros.','Empieza a aplaudir hasta que alguien te toque el hombro.',
+          'Haz 3 sentadillas.','Cuenta un secreto embarazoso (o haz 5 flexiones si prefieres no decir nada).',
+          'Manda un audio a un contacto aleatorio de tu WhatsApp.','Haz 5 flexiones.',
+          'Ponte el pañuelo de la peña en el culo como si fuera una cola.','Haz 20 saltos de tijera.',
+          'Encuentra y trae un objeto amarillo en menos de 45 segundos.','Saca un hielo de la copa de alguién.',
+          'Mete un hielo en la copa de alguien.','Mete un objeto en el bolsillo de alguien sin que se de cuenta.',
+          'Anda en cuclillas durante un minuto.'
+        ]
+      };
 
-    const PUNISH = {
-      beber:[
-        'Bebe 1 trago.','Bebe 2 tragos.','Bebe 3 tragos.','Bebe medio vaso.','Toma un chupito.',
-        'Bebe un sorbo cada vez que alguien diga tu nombre durante 5 minutos.',
-        'Juega a piedra papel y tijera con alguien (si ganas 1 trago, si pierdes 3 tragos).',
-        'Bebe 4 tragos seguidos.','Bebe un trago y elige a alguien para que beba contigo.',
-        'Bebe un trago por cada hermano/hermana que tengas.',
-        'Bebe 1 trago y grita “¡MUCHA CRISIS! EH! OE!”.'
-      ],
-      reto:[
-        'Sácate una foto con alguien que no conozcas y súbela a stories.',
-        'Haz la carretilla 10 metros.','Empieza a aplaudir hasta que alguien te toque el hombro.',
-        'Haz 3 sentadillas.','Cuenta un secreto embarazoso (o haz 5 flexiones si prefieres no decir nada).',
-        'Manda un audio a un contacto aleatorio de tu WhatsApp.','Haz 5 flexiones.',
-        'Ponte el pañuelo de la peña en el culo como si fuera una cola.','Haz 20 saltos de tijera.',
-        'Encuentra y trae un objeto amarillo en menos de 45 segundos.','Saca un hielo de la copa de alguién.',
-        'Mete un hielo en la copa de alguien.','Mete un objeto en el bolsillo de alguien sin que se de cuenta.',
-        'Anda en cuclillas durante un minuto.'
-      ]
-    };
-
-    async function updateBoard(){
-      try{
-        const top = await loadGlobalLB(10);
-        $('#board').innerHTML = top.length ? top.map((r,i)=>`${i+1}. <strong>${r.name}</strong> — ${r.score}`).join('<br>') : 'Sin puntuaciones todavía.';
-      }catch(e){
+      // ===== Clasificaciones =====
+      async function updateGlobalBoard(){
+        const box = $('#board-global');
+        const mode = $('#lb-mode');
+        if(!SUPABASE_ANON){
+          box.textContent = 'Ranking global desactivado (falta anon key).';
+          if(mode) mode.textContent = 'Modo: LOCAL (añade anon key para Global)';
+          return;
+        }
+        try{
+          const top = await loadGlobalLB(10);
+          box.innerHTML = top.length ? top.map((r,i)=>`${i+1}. <strong>${r.name}</strong> — ${r.score}`).join('<br>') : 'Sin puntuaciones todavía.';
+          if(mode) mode.textContent = 'Modo: GLOBAL (Supabase)';
+        }catch(e){
+          box.textContent = 'No disponible ahora mismo (usando local).';
+          if(mode) mode.textContent = 'Modo: LOCAL (falló conexión con Supabase)';
+        }
+      }
+      function updateLocalBoard(){
         const map = loadScores();
         const arr = Object.entries(map).map(([name,score])=>({name,score})).sort((a,b)=>b.score-a.score).slice(0,10);
-        $('#board').innerHTML = arr.length ? arr.map((r,i)=>`${i+1}. <strong>${r.name}</strong> — ${r.score}`).join('<br>') : 'Sin puntuaciones (offline).';
+        $('#board-local').innerHTML = arr.length ? arr.map((r,i)=>`${i+1}. <strong>${r.name}</strong> — ${r.score}`).join('<br>') : 'Sin puntuaciones todavía.';
       }
-    }
 
-    function nextQuestion(){
-      const item = DATA[Math.floor(Math.random()*DATA.length)];
-      const [lowVar, highVar] = makeVariants(item);
-      const variant = Math.random()<0.5 ? lowVar : highVar;
-      return { item, variant };
-    }
-
-    function onStart(){
-      const input = document.getElementById('player-name');
-      const val = (input?.value||'').trim();
-      if(!val){ showError('Escribe tu nombre'); return; }
-      player.name = val; const map = loadScores(); player.score = map[val] || 0;
-      $('#pname').textContent = player.name; $('#pscore').textContent = player.score;
-      updateBoard(); show('penalty');
-    }
-
-    function startRound(type){
-      chosenPenaltyType = type; const list = PUNISH[type];
-      chosenPenaltyText = list[Math.floor(Math.random()*list.length)];
-      ({ item: currentItem, variant: currentVariant } = nextQuestion());
-      $('#qtext').textContent = currentVariant.statement; $('#hint').textContent = 'Pulsa “Más” o “Menos”.';
-      show('question');
-    }
-
-    function answer(choice){
-      const ok = isAnswerCorrect(choice, currentItem, currentVariant);
-      const truth = `${currentItem.label}: ${currentItem.trueValue}${currentItem.unit? ' '+currentItem.unit : ''} (dato real, ${currentItem.asOf}).`;
-      $('#truth-line').textContent = truth;
-      if(ok){
-        $('#result-line').textContent = '✅ ¡Correcto! +1 punto';
-        $('#penalty-line').classList.add('hidden');
-        player.score += 1; $('#pscore').textContent = player.score;
-        const map = loadScores(); map[player.name] = player.score; saveScores(map);
-        updateBoard(); postScore(player.name, player.score).catch(()=>{});
-      }else{
-        $('#result-line').textContent = '❌ Incorrecto';
-        $('#penalty-text').textContent = chosenPenaltyText; $('#penalty-line').classList.remove('hidden');
+      // ===== Ronda =====
+      function nextQuestion(){
+        const item = DATA[Math.floor(Math.random()*DATA.length)];
+        const [lowVar, highVar] = makeVariants(item);
+        const variant = Math.random()<0.5 ? lowVar : highVar;
+        return { item, variant };
       }
-      show('result');
-    }
+      function startRound(type){
+        const list = PUNISH[type];
+        const chosen = list[Math.floor(Math.random()*list.length)];
+        chosenPenaltyText = chosen;
+        const n = nextQuestion();
+        currentItem = n.item; currentVariant = n.variant;
+        $('#qtext').textContent = currentVariant.statement;
+        $('#hint').textContent = 'Pulsa “Más” o “Menos”.';
+        show('question');
+      }
+      function onStart(){
+        const val = ($('#player-name')?.value||'').trim();
+        if(!val){ showError('Escribe tu nombre'); return; }
+        player.name = val;
+        const map = loadScores(); player.score = map[val] || 0;
+        $('#pname').textContent = player.name; $('#pscore').textContent = player.score;
+        updateGlobalBoard(); updateLocalBoard();
+        show('penalty');
+      }
+      function answer(choice){
+        const ok = (typeof isAnswerCorrect==='function') ? isAnswerCorrect(choice, currentItem, currentVariant) : false;
+        const truth = `${currentItem.label}: ${currentItem.trueValue}${currentItem.unit? ' '+currentItem.unit : ''} (dato real, ${currentItem.asOf}).`;
+        $('#truth-line').textContent = truth;
+        if(ok){
+          $('#result-line').textContent = '✅ ¡Correcto! +1 punto';
+          $('#penalty-line').classList.add('hidden');
+          player.score += 1; $('#pscore').textContent = player.score;
+          const map = loadScores(); map[player.name] = player.score; saveScores(map);
+          updateLocalBoard();
+          postScore(player.name, player.score).catch(()=>{});
+          updateGlobalBoard();
+        }else{
+          $('#result-line').textContent = '❌ Incorrecto';
+          $('#penalty-text').textContent = chosenPenaltyText; $('#penalty-line').classList.remove('hidden');
+        }
+        show('result');
+      }
 
-    // === Wire UI ===
-    document.getElementById('btn-start')?.addEventListener('click', onStart);
-    document.getElementById('player-name')?.addEventListener('keydown', (e)=>{ if(e.key==='Enter') onStart(); });
-    document.getElementById('btn-beber')?.addEventListener('click', ()=> startRound('beber'));
-    document.getElementById('btn-reto')?.addEventListener('click', ()=> startRound('reto'));
-    document.getElementById('btn-mas')?.addEventListener('click', ()=> answer('higher'));
-    document.getElementById('btn-menos')?.addEventListener('click', ()=> answer('lower'));
-    document.getElementById('btn-next')?.addEventListener('click', ()=> show('penalty'));
+      // Wire UI
+      $('#btn-start')?.addEventListener('click', onStart);
+      $('#player-name')?.addEventListener('keydown', (e)=>{ if(e.key==='Enter') onStart(); });
+      $('#btn-beber')?.addEventListener('click', ()=> startRound('beber'));
+      $('#btn-reto')?.addEventListener('click', ()=> startRound('reto'));
+      $('#btn-mas')?.addEventListener('click', ()=> answer('higher'));
+      $('#btn-menos')?.addEventListener('click', ()=> answer('lower'));
+      $('#btn-next')?.addEventListener('click', ()=> show('penalty'));
 
-    // === Init ===
-    await maybeLoadSupabase();
-    await loadData();
-    updateBoard();
-  })().catch(err=>{ console.error(err); const m = (err && err.message) ? err.message : String(err); const p = document.createElement('pre'); p.textContent = 'Init error: '+m; p.style.color = '#ff8080'; p.style.fontSize='12px'; document.body.appendChild(p); });
-</script>
+      // Init
+      await maybeLoadSupabase();
+      await loadData();
+      updateGlobalBoard();
+      updateLocalBoard();
+    })().catch(err=>{ console.error(err); const m=(err&&err.message)?err.message:String(err); const p=document.createElement('pre'); p.textContent='Init error: '+m; p.style.color='#ff8080'; p.style.fontSize='12px'; document.body.appendChild(p); });
+  </script>
 </body>
 </html>
